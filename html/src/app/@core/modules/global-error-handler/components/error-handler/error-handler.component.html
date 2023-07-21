@@ -1,0 +1,29 @@
+<!-- Header -->
+<div class="modal-header border-0 justify-content-center">
+  <div class="column text-center">
+    <fa-icon [classes]="['text-danger', 'mb-3']" size="7x" icon="{{ modalIcon }}"></fa-icon>
+    <h4 class="modal-title" id="modal-title">
+      {{title | translate}}
+    </h4>
+  </div>
+    <button type="button" class="close border border-white bg-transparent fs-3" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<!-- Body -->
+<div class="modal-body text-center">
+  <p *ngIf="message !== null">{{message | translate}}</p>
+  <p *ngFor="let error of errors">
+    <span *ngFor="let errorKeyValue of error | keyvalue">
+      <!-- errorKeyValue.key = i18n key to translate -->
+      <!-- errorKeyValue.value = parameters to translate for the key -->
+      {{errorKeyValue.key | translate:globals.toObject(errorKeyValue.value) }}
+    </span>
+  </p>
+</div>
+<!-- Footer -->
+<div class="modal-footer border-0 justify-content-center">
+  <button type="button " ngbAutofocus class="btn border-danger btn-outline-danger" (click)="activeModal.dismiss()">
+    {{ buttonLabel | translate}}
+  </button>
+</div>

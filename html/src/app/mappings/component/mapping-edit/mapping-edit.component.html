@@ -1,0 +1,46 @@
+<!-- Header -->
+<div class="modal-header border-1 justify-content-between text-primary">
+    <div class="column text-center">
+      <h4 class="modal-title" id="modal-title">
+        {{ (model.id===undefined||model.id===null?'i18n.mapping.modal.title.new':'i18n.mapping.modal.title.edit') | translate }}
+      </h4>
+    </div>
+      <button type="button" class="close border border-white bg-transparent fs-3" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <!-- Body -->
+  <div class="modal-body text-center">
+    <div class="mx-auto mt-5 "> 
+      <form [formGroup]="form">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label class="me-sm-2" for="pattern">{{ 'i18n.mapping.pattern' | translate}}</label>
+                <ng-select [multiple]="false" [closeOnSelect]="true" appendTo="body" [hideSelected]="true" [items]="data?.mappings" bindLabel="name"
+                    required formControlName="pattern" placeholder="{{ 'combo.select' | translate }}">
+                </ng-select>
+            </div>
+
+            <div class="col-md-6 form-group">
+              <label class="me-sm-2" for="position">{{ 'i18n.mapping.position' | translate }}</label>
+              <div class="input-group mb-2">
+                  <input type="text" id="position" class="form-control" formControlName="position" maxlength="2"/>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label class="me-sm-2" for="authorities">{{ 'i18n.mapping.authorities' | translate}}</label>
+                <ng-select [multiple]="true" [closeOnSelect]="false" appendTo="body" [hideSelected]="true" [items]="data?.authorities" bindLabel="name"
+                   required formControlName="authorities" placeholder="{{ 'combo.select' | translate }}">
+                </ng-select>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="modal-footer border-0 justify-content-end">
+    <app-modal-button [buttons]="getButtons()" [form]="form"></app-modal-button>
+  </div>
+  

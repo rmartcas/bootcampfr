@@ -1,0 +1,11 @@
+:host{
+    display: flex;
+    flex-direction: column;
+  
+    main {
+      .container, .container-fluid {
+        padding-top: 90px;
+        padding-bottom: 56px;
+      }
+    }
+  }

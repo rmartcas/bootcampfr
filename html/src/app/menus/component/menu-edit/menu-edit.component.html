@@ -1,0 +1,87 @@
+<!-- Header -->
+<div class="modal-header border-1 justify-content-between text-primary">
+    <div class="column text-center">
+      <h4 class="modal-title" id="modal-title">
+        {{ (model.id===undefined||model.id===null?'i18n.menu.modal.title.new':'i18n.menu.modal.title.edit') | translate }}
+      </h4>
+    </div>
+      <button type="button" class="close border border-white bg-transparent fs-3" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <!-- Body -->
+  <div class="modal-body text-center">
+    <div class="mx-auto mt-5"> 
+      <form [formGroup]="form">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label class="me-sm-2" for="title">{{ 'i18n.menu.title' | translate }}</label>
+                <div class="input-group mb-2">
+                    <input type="text" id="title" class="form-control" formControlName="title" maxlength="250" required/>
+                    <ng-template #tipContent>{{ 'i18n.menu.title.tooltip' | translate }}</ng-template>
+                    <div class="input-group-append">
+                      <span class="input-group-text" [ngbTooltip]="tipContent">
+                          <fa-icon class="me-1" icon="info-circle"></fa-icon>
+                      </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="me-sm-2" for="link">{{ 'i18n.menu.link' | translate }}</label>
+                <div class="input-group mb-2">
+                    <input type="text" id="link" class="form-control" formControlName="link" maxlength="250" required/>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="me-sm-2" for="icon">{{ 'i18n.menu.icon' | translate }}</label>
+                <div class="input-group mb-2">
+                    <input type="text" id="icon" class="form-control" formControlName="icon" maxlength="100"/>
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <a href="https://fontawesome.com/icons" target="_blank" rel="noopener">
+                          <fa-icon class="me-1" icon="external-link-alt"></fa-icon>
+                        </a>
+                      </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 form-group">
+                <div class="form-check form-switch mt-md-4">
+                    <input class="form-check-input" type="checkbox" id="enabled" checked="checked" formControlName="enabled">
+                    <label class="form-check-label" for="enabled">{{ 'i18n.menu.enabled' | translate }}</label>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+              <label class="me-sm-2" for="position">{{ 'i18n.menu.position' | translate }}</label>
+              <div class="input-group mb-2">
+                  <input type="text" id="position" class="form-control" formControlName="position" maxlength="2"/>
+              </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <label class="me-sm-2" for="parent">{{ 'i18n.menu.parent' | translate}}</label>
+                <ng-select [multiple]="false" [closeOnSelect]="true" [hideSelected]="true" appendTo="body" [items]="data?.parents" bindLabel="name"
+                    formControlName="parent" placeholder="{{ 'combo.select' | translate }}">
+                </ng-select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label class="me-sm-2" for="authorities">{{ 'i18n.menu.authorities' | translate}}</label>
+                <ng-select [multiple]="true" [closeOnSelect]="false" appendTo="body" [hideSelected]="true" [items]="data?.authorities" bindLabel="name"
+                    formControlName="authorities" placeholder="{{ 'combo.select' | translate }}">
+                </ng-select>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="modal-footer border-0 justify-content-end">
+    <app-modal-button [buttons]="getButtons()" [form]="form"></app-modal-button>
+  </div>
+  

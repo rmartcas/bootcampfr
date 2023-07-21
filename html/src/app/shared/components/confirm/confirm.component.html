@@ -1,0 +1,32 @@
+<!-- Header -->
+<div class="modal-header border-1 justify-content-center text-primary">
+  <div class="column text-center">
+    <h4 class="modal-title" id="modal-title">
+      {{ 'i18n.popup.confirm.title' | translate}}
+    </h4>
+  </div>
+</div>
+<!-- Body -->
+<div class="modal-body text-center">
+  <div class="mx-auto mt-2 ">
+    <h4>{{ data?.message | translate}}</h4>
+  </div>
+</div>
+<!-- Footer -->
+<div class="modal-footer border-0 justify-content-end">
+  <button type="button"
+      class="btn border border-primary btn-nc btn-outline-primary me-1 mb-1"
+      (click)="activeModal.close(true)"
+      title="{{ 'button.ok' | translate}}">
+      <fa-icon icon="sign-in-alt"></fa-icon>
+      {{ 'button.ok' | translate}}
+  </button>
+
+  <button type="button"
+      class="btn border-danger btn-nc btn-outline-danger me-1 mb-1"
+      (click)="activeModal.close(false)"
+      title="{{ 'button.cancel' | translate}}">
+      <fa-icon icon="times"></fa-icon>
+      {{ 'button.cancel' | translate}}
+  </button>
+</div>

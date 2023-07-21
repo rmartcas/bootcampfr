@@ -1,0 +1,30 @@
+{
+  "en": {
+    "i18n.messages.app.name": "sample-app",
+    "header.user.profile": "Profile",
+    "header.user.config": "Settings",
+    "header.user.help": "Help",
+    "header.user.close": "Sign Out",
+    "header.language.es": "Spanish - ES",
+    "header.language.en": "English - EN",
+    "header.language.pt": "Portuguese - PT",
+    "menu.home": "Menu",
+    "menu.link": "Link",
+    "menu.dropdown": "Dropdown",
+    "menu.dropdown.option.one": "Action",
+    "menu.dropdown.option.two": "Another action",
+    "menu.dropdown.option.three": "Something else here",
+    "page.title": "Dashboard",
+    "page.subtitle": "Table Lorem",
+    "page.share": "Share",
+    "page.export": "Export",
+    "page.week": "This week",
+    "table.header.one": "Header",
+    "table.header.two": "Header2",
+    "table.header.three": "Header3",
+    "table.header.four": "Header4",
+    "i18n.error.general": "Something went wrong. We are working on getting this fixed as soon as we can. You may be able to try again",
+    "i18n.error.buttonLabel": "Try again",
+    "i18n.error.title": "Error"
+  }
+}

@@ -1,0 +1,10 @@
+<ng-template ngFor let-b [ngForOf]="buttons">
+    <button type="button" [disabled]="b.disabledWhenInvalid && (form?.invalid || form?.pristine)"
+        class="btn border border-primary btn-nc btn-outline-primary me-1 mb-1"
+        (click)="b.handler()"
+        *appHasAnyRole="b.roles"
+        title="{{b.name | translate}}">
+        <fa-icon *ngIf="b.icon !== null && b.icon !== ''" [icon]="b.icon"></fa-icon>
+        {{b.name | translate}}
+    </button>
+</ng-template>

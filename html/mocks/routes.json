@@ -1,0 +1,8 @@
+{
+  "/core/config.ajax": "/config",
+  "/core/user.ajax": "/user",
+  "/translations/es.ajax": "/es",
+  "/translations/pt.ajax": "/pt",
+  "/translations/en.ajax": "/en",
+  "/core/users.ajax": "/users"
+}

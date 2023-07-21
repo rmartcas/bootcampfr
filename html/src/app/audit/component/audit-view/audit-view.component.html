@@ -1,0 +1,90 @@
+<!-- Header -->
+<div class="modal-header border-1 justify-content-between text-primary">
+    <div class="column text-center">
+      <h4 class="modal-title" id="modal-title">
+        {{ 'i18n.audit.modal.title.edit' | translate}}
+      </h4>
+    </div>
+      <button type="button" class="close border border-white bg-transparent fs-3" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <!-- Body -->
+  <div class="modal-body text-center">
+    <div class="mx-auto">
+        <app-collapse [name]="'i18n.audit.data'">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label class="me-sm-2" for="requestId">{{ 'i18n.auditPage.filters.requestId' | translate}}</label>
+                    <div class="input-group mb-2">
+                        <input type="text" value="{{ this.model[0].request_id }}" id="requestId" class="form-control" readonly="readonly"  />
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="me-sm-2" for="pairKey">{{ 'i18n.auditPage.filters.pairKey' | translate}}</label>
+                    <div class="input-group mb-2">
+                        <input type="text" value="{{ this.model[0].pair_key }}" id="pairKey" class="form-control" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 form-group">
+                    <label class="me-sm-2" for="action">{{ 'i18n.auditPage.filters.action' | translate}}</label>
+                    <div class="input-group mb-2">
+                        <input type="text" value="{{ this.model[0].audit_action }}" id="action" class="form-control" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 form-group">
+                    <label class="me-sm-2" for="user">{{ 'i18n.auditPage.filters.user' | translate}}</label>
+                    <div class="input-group mb-2">
+                        <input type="text" value="{{ this.model[0].audit_user }}" id="user" class="form-control" readonly="readonly" />
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 form-group">
+                    <label class="me-sm-2" for="date">{{ 'i18n.auditPage.filters.created' | translate}}</label>
+                    <div class="input-group mb-2">
+                        <input type="text" value="{{ this.model[0].audit_date | date: 'dd-MM-yyyy HH:mm:ss' }}" id="date" class="form-control" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+        </app-collapse>
+        
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <app-collapse [name]="'i18n.audit.data.before'">
+                    <div class="overflow-auto">
+                        <div class="d-flex form-group" *ngFor="let key of this.data.keys">
+                            <div class="col-md-6">
+                                <label class="me-sm-2">{{ key }}</label>
+                            </div>
+                            <div class="col-md-6" *ngFor="let record of this.data.before">
+                                <input type="text" value="{{ record[key] }}" title="{{ record[key] }}" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+                    </div>
+                </app-collapse>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <app-collapse [name]="'i18n.audit.data.after'" class="audit-group">
+                    <div class="overflow-auto">
+                        <div class="d-flex form-group" *ngFor="let key of this.data.keys">
+                            <div class="col-md-6">
+                                <label class="me-sm-2" [for]="key">{{ key }}</label>
+                            </div>
+                            <div class="col-md-6" *ngFor="let record of this.data.after">
+                                <input type="text" value="{{ record[key] }}" title="{{ record[key] }}" class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+                    </div>
+                </app-collapse>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="modal-footer border-0 justify-content-end">
+    <app-modal-button [buttons]="getButtons()" [form]="form"></app-modal-button>
+  </div>
+  

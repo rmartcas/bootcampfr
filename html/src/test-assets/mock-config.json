@@ -1,0 +1,490 @@
+{
+    "locale": "es",
+    "defaultLocale": "es",
+    "locales": [ "es", "en" ],
+    "user": {
+        "id": 1,
+        "username": "test",
+        "name": "test user",
+        "profileId": 1,
+        "authorities": [
+            "ROLE_READ_AUTHORITIES",
+            "ROLE_WRITE_AUTHORITIES",
+            "ROLE_READ_PROFILES",
+            "ROLE_WRITE_PROFILES",
+            "ROLE_READ_USERS",
+            "ROLE_WRITE_USERS",
+            "ROLE_READ_MAPPINGS",
+            "ROLE_WRITE_MAPPINGS",
+            "ROLE_READ_MENUS",
+            "ROLE_WRITE_MENUS",
+            "ROLE_AUDIT",
+            "ROLE_CORE",
+            "ROLE_admin"
+        ]
+    },
+    "api": {
+        "core": {
+            "menu": {
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            },
+            "locale": {
+                "{lang}": {
+                    "GET": {
+                        "url": "/api/core/locale/{lang}"
+                    }
+                }
+            },
+            "config": {
+                "GET": {
+                    "url": "/api/core/config"
+                }
+            }
+        },
+        "mappings": {
+            "init": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            },
+            "search": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "find": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "insert": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "update": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "delete": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "export": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "initedit": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            },
+            "validate": {
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            }
+        },
+        "logout": "/logout",
+        "audit": {
+            "init": {
+                "POST": {
+                    "action": "test_controller_action",
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "action": "test_controller_action",
+                    "url": "/dummy/url"
+                }
+            },
+            "search": {
+                "POST": {
+                    "action": "test_search_action",
+                    "url": "/dummy/url"
+                }
+            },
+            "find": {
+                "POST": {
+                    "action": "test_controller_action",
+                    "url": "/dummy/url"
+                }
+            },
+            "update": {
+                "POST": {
+                    "action": "test_controller_action",
+                    "url": "/dummy/url"
+                }
+            },
+            "insert": {
+                "POST": {
+                    "action": "test_controller_action",
+                    "url": "/dummy/url"
+                }
+            },
+            "findByPairKey": {
+                "POST": {
+                    "action": "test_controller_action",
+                    "url": "/dummy/url"
+                }
+            },
+            "export": {
+                "POST": {
+                    "action": "test_controller_action",
+                    "url": "/dummy/url"
+                }
+            },
+            "delete": {
+                "POST": {
+                    "action": "test_controller_action",
+                    "url": "/dummy/url"
+                }
+            },
+            "initedit": {
+                "POST": {
+                    "action": "test_initedit_post_action",
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "action": "test_initedit_get_action",
+                    "url": "/dummy/url"
+                }
+            }
+        },
+        "profiles": {
+            "init": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            },
+            "search": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "find": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "insert": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "update": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "export": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "delete": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "initedit": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            }
+        },
+        "menus": {
+            "init": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            },
+            "search": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "find": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "update": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "insert": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "delete": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "export": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "initedit": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            }
+        },
+        "error": {
+            "GET": {
+                "url": "/error"
+            }
+        },
+        "authorities": {
+            "init": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            },
+            "search": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "find": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "update": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "insert": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "delete": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "export": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "initedit": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            }
+        },
+        "users": {
+            "init": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            },
+            "search": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "find": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "insert": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "update": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "delete": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "export": {
+                "POST": {
+                    "url": "/dummy/url"
+                }
+            },
+            "initedit": {
+                "POST": {
+                    "url": "/dummy/url"
+                },
+                "GET": {
+                    "url": "/dummy/url"
+                }
+            }
+        }
+    },
+    "menus": [
+        {
+            "id": 1,
+            "title": "menu.administration",
+            "link": "administration",
+            "icon": "cogs",
+            "position": 2,
+            "roles": [
+                "AUDIT",
+                "WRITE_MAPPINGS",
+                "WRITE_MENUS",
+                "READ_PROFILES",
+                "WRITE_USERS",
+                "READ_AUTHORITIES",
+                "admin",
+                "READ_MENUS",
+                "READ_USERS",
+                "READ_MAPPINGS",
+                "WRITE_PROFILES",
+                "WRITE_AUTHORITIES"
+            ],
+            "enabled": true,
+            "children": [
+                {
+                    "id": 4,
+                    "title": "menu.administration.users",
+                    "link": "administration/users",
+                    "icon": "users",
+                    "position": 1,
+                    "roles": [
+                        "READ_USERS",
+                        "admin",
+                        "WRITE_USERS"
+                    ],
+                    "enabled": true,
+                    "parent": {
+                        "id": 1,
+                        "enabled": false
+                    }
+                },
+                {
+                    "id": 7,
+                    "title": "menu.administration.audit",
+                    "link": "administration/audit",
+                    "icon": "fingerprint",
+                    "position": 2,
+                    "roles": [
+                        "admin",
+                        "AUDIT"
+                    ],
+                    "enabled": true,
+                    "parent": {
+                        "id": 1,
+                        "enabled": false
+                    }
+                },
+                {
+                    "id": 2,
+                    "title": "menu.administration.authorities",
+                    "link": "administration/authorities",
+                    "icon": "user-tag",
+                    "roles": [
+                        "WRITE_AUTHORITIES",
+                        "READ_AUTHORITIES",
+                        "admin"
+                    ],
+                    "enabled": true,
+                    "parent": {
+                        "id": 1,
+                        "enabled": false
+                    }
+                },
+                {
+                    "id": 3,
+                    "title": "menu.administration.profiles",
+                    "link": "administration/profiles",
+                    "icon": "id-card",
+                    "roles": [
+                        "READ_PROFILES",
+                        "WRITE_PROFILES",
+                        "admin"
+                    ],
+                    "enabled": true,
+                    "parent": {
+                        "id": 1,
+                        "enabled": false
+                    }
+                },
+                {
+                    "id": 5,
+                    "title": "menu.administration.mappings",
+                    "link": "administration/mappings",
+                    "icon": "lock",
+                    "roles": [
+                        "admin",
+                        "WRITE_MAPPINGS",
+                        "READ_MAPPINGS"
+                    ],
+                    "enabled": true,
+                    "parent": {
+                        "id": 1,
+                        "enabled": false
+                    }
+                },
+                {
+                    "id": 6,
+                    "title": "menu.administration.menus",
+                    "link": "administration/menus",
+                    "icon": "stream",
+                    "roles": [
+                        "WRITE_MENUS",
+                        "READ_MENUS",
+                        "admin"
+                    ],
+                    "enabled": true,
+                    "parent": {
+                        "id": 1,
+                        "enabled": false
+                    }
+                }
+            ]
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "size": 10,
+        "pageLimits": [5, 10, 25, 50, 100, -1]
+    }
+}

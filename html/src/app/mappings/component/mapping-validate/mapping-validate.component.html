@@ -1,0 +1,37 @@
+<!-- Header -->
+<div class="modal-header border-1 justify-content-start text-primary">
+    <div class="column text-center">
+      <h4 class="modal-title" id="modal-title">
+        {{ 'i18n.mapping.validate.title' | translate}}
+      </h4>
+    </div>
+  </div>
+  <!-- Body -->
+  <div class="modal-body text-center">
+    <ng-template #accesibleTemplate let-row="row" let-value="value">
+        <fa-icon class="ms-1" [icon]="value === true ? 'check': 'times'" [size]="'1x'"
+        [ngClass]="{'text-primary': value === true, 'text-danger' : value === false}">
+      </fa-icon>
+    </ng-template>
+
+      <ngx-datatable
+        class="bootstrap"
+        [rows]="data"
+        [columns]="[
+            {name: 'i18n.mapping.validate.isAccesible' | translate, prop: 'isAccesible', cellTemplate: accesibleTemplate, flexGrow: 1},
+            {name: 'i18n.mapping.pattern' | translate, prop: 'key', isTreeColumn: true, flexGrow: 2},
+            {name: 'i18n.mapping.validate.profiles' | translate, prop: 'value', flexGrow: 1}
+        ]"
+        [columnMode]="'flex'"
+        [headerHeight]="50"
+        rowHeight="auto"
+        [treeFromRelation]="'parent'"
+        [treeToRelation]="'me'"
+        (treeAction)="onTreeAction($event)"
+      >
+    </ngx-datatable>
+  </div>
+  <!-- Footer -->
+  <div class="modal-footer border-0 justify-content-end">
+    <app-modal-button [buttons]="buttons" [form]="null"></app-modal-button>
+  </div>

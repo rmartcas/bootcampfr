@@ -1,0 +1,19 @@
+.breadcrumb {
+  padding: 0.35rem 1rem;
+  font-size: 0.8em;
+  margin: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  a {
+    color: rgb(33, 130, 196);
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<div class="mx-auto mt-5 ">
+    <app-collapse [name]="'i18n.authorityPage.filters'">
+        <form [formGroup]="form" (submit)="onSearch()">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="me-sm-2" for="name">{{ 'i18n.authorityPage.filters.name' | translate }}</label>
+                  <div class="input-group mb-2">
+                      <input type="text" id="name" class="form-control" formControlName="name" maxlength="100"/>
+                  </div>
+                </div>
+    
+                <div class="col-md-6 form-group">
+                    <label class="me-sm-2" for="description">{{ 'i18n.authorityPage.filters.description' | translate}}</label>
+                    <div class="input-group mb-2">
+                        <input type="text" id="description" class="form-control" formControlName="description" maxlength="250"/>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-end">
+                    <button type="reset" class="btn btn-nc btn-outline-primary">
+                        <fa-icon class="me-1" icon="times"></fa-icon>
+                        {{'button.clear' | translate}}
+                    </button>   
+                    <button type="submit" class="btn btn-nc btn-outline-primary ms-1"  [disabled]="form.invalid">
+                        <fa-icon class="me-1" icon="search"></fa-icon>
+                        {{'button.search' | translate}}
+                    </button>   
+                </div>
+              </div>
+        
+        </form>
+    </app-collapse>
+
+    <app-collapse [name]="'i18n.authorityPage.records'">
+        <app-table *ngIf="data !== undefined"
+            [page]="page"
+            [columns] = "getColumnModel()"
+            [buttons] = "getButtons()"
+            (changed)="onSearch()">
+        </app-table>
+    </app-collapse>
+</div>

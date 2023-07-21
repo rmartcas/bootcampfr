@@ -1,0 +1,15 @@
+{
+  "config": {
+    "urlLogout": "https://localhost:8443/saml/?GLO=true",
+    "locale": "en",
+    "defaultLocale": "es",
+    "locales": ["es", "en"],
+    "user": {
+        "id": 1,
+        "username": "E830724",
+        "name": "Raúl Martín Casillas",
+        "email": "rmartcas@everis.com",
+        "profileId": 1
+    }
+  }
+}

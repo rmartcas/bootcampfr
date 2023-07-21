@@ -1,0 +1,11 @@
+<ol class="breadcrumb"> 
+  <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs; let i = index" [class.active]="i===breadcrumbs.length-1">
+    <a [routerLink]="breadcrumb.url" routerLinkActive="router-link-active" *ngIf="i!==breadcrumbs.length-1" class="text-primary" title="{{ breadcrumb.label | translate }}">
+      {{ breadcrumb.label | translate }}
+    </a>
+    <span *ngIf="i===breadcrumbs.length-1" class="text-primary" title="{{ breadcrumb.label | translate }}">
+      {{ breadcrumb.label | translate }}
+    </span>
+  </li>
+</ol>
+   

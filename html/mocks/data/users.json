@@ -1,0 +1,37 @@
+{
+  "users": {
+    "dto": null,
+    "pagination": {
+      "page": 1,
+      "size": 10,
+      "totalPages": 1,
+      "totalRecords": 1
+    },
+    "records": [{
+      "id": 1,
+      "username": "E830724",
+      "name": "Raúl Martín Casillas",
+      "role": "ADMIN",
+      "email": "E000000@email.com",
+      "active": true,
+      "created": [
+        2020,
+        5,
+        20,
+        5,
+        36,
+        33,
+        959
+      ],
+      "modified": [
+        2020,
+        5,
+        20,
+        5,
+        36,
+        33,
+        959
+      ]
+    }]
+  }
+}

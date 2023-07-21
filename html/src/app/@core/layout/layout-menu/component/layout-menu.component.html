@@ -1,0 +1,33 @@
+<ul class="navbar-nav flex-wrap">
+    <ng-container *ngTemplateOutlet="recursiveList; context:{ list: (menus$ | async), level: 0 }"></ng-container>
+
+    <ng-template #recursiveList let-items="list" let-level="level">
+        <ng-template #menuEntry ngFor let-menuItem [ngForOf]="items">
+            <!-- Item without children -->
+            <li *ngIf="undefined === menuItem.children || menuItem.children.length === 0" class="nav-item" routerLinkActive="active">
+                <a class="{{(level > 0 ? 'menu-item ' + (level + 1): 'nav-link') + ' ' + (!menuItem.enabled ? 'disabled' : '')}}" [routerLink]="[menuItem.link]" (click)="isMenuCollapsed = true"
+                    ngbDropdownItem
+                    title="{{ menuItem.title | translate }}">
+                    <fa-icon class="me-1 text-primary" icon="{{ menuItem.icon }}" *ngIf="menuItem.icon !== undefined && null !== menuItem.icon && '' !== menuItem.icon"></fa-icon>
+                    {{ menuItem.title | translate }}
+                </a>
+            </li>
+            <!-- Item with children -->
+            <li *ngIf="undefined !== menuItem.children && null !== menuItem.children && menuItem.children.length > 0" class="nav-item {{level > 0 ? 'dropend' : ''}}" ngbDropdown>
+                <a class="{{(level > 0 ? 'menu-item ' + (level + 1): 'nav-link') + ' ' + (!menuItem.enabled ? 'disabled' : '')}}" type="button" role="button"
+                    ngbDropdownToggle
+                    title="{{ menuItem.title | translate }}">
+                    <fa-icon class="me-1 text-primary" icon="{{ menuItem.icon }}" *ngIf="menuItem.icon !== undefined && null !== menuItem.icon && '' !== menuItem.icon"></fa-icon>
+                    {{ menuItem.title | translate }}
+                </a>
+                <ul ngbDropdownMenu id="menuDropdown{{menuItem.id}}" 
+                    class="dropdown-menu border-md-none"
+                    [ngClass]="{'': !isMenuCollapsed , 'shadow-sm' : isMenuCollapsed}">
+                    <ng-container *ngTemplateOutlet="recursiveList; context:{ list: menuItem.children, level: level + 1 }">
+                    </ng-container>
+                </ul>
+            </li>
+        </ng-template>
+    </ng-template>
+</ul>
+

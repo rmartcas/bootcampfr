@@ -1,0 +1,30 @@
+{
+  "pt": {
+    "i18n.messages.app.name": "sample-app",
+    "header.user.profile": "Perfil",
+    "header.user.config": "Configurações",
+    "header.user.help": "Ajuda",
+    "header.user.close": "Terminar sessão",
+    "header.language.es": "Espanhol - ES",
+    "header.language.en": "Inglês - EN",
+    "header.language.pt": "Português - PT",
+    "menu.home": "Menu",
+    "menu.link": "Ligação",
+    "menu.dropdown": "Caixa suspensa",
+    "menu.dropdown.option.one": "Ação",
+    "menu.dropdown.option.two": "Outra ação",
+    "menu.dropdown.option.three": "Alguma coisa diferente aqui",
+    "page.title": "Painel de controle",
+    "page.subtitle": "Mesa Lorem",
+    "page.share": "Partilhar",
+    "page.export": "Exportar",
+    "page.week": "Esta semana",
+    "table.header.one": "Cabeçalho",
+    "table.header.two": "Cabeçalho2",
+    "table.header.three": "Cabeçalho3",
+    "table.header.four": "Cabeçalho4",
+    "i18n.error.general": "Algo deu errado. Estamos trabalhando para corrigir isso o mais rápido possível. Você pode tentar novamente",
+    "i18n.error.buttonLabel": "Tenta de novo",
+    "i18n.error.title": "Erro"
+  }
+}

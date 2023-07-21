@@ -1,0 +1,66 @@
+<header class="fixed-top">
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <!-- navbar brand -->
+    <a class="navbar-brand py-0 text-right" [routerLink]="'.'">
+      <img class="logo" src="assets/img/nttlogo.png"
+        srcset="assets/img/nttlogo@2x.png 2x, assets/img/nttlogo@3x.png 3x" alt="{{'i18n.messages.app.name' | translate}} Logo" title="{{'i18n.messages.app.name' | translate}}">
+      <span class="d-block position-relative text-secondary title">
+        <!-- App Name -->
+        {{'i18n.messages.app.name' | translate}}
+      </span>
+    </a>
+
+    <!-- Navbar Toggler Mobile -->
+    <button class="navbar-toggler border-0" type="button" aria-controls="navbarContent"
+      [attr.aria-expanded]="!isMenuCollapsed" aria-label="Toggle navigation"
+      (click)="isMenuCollapsed = !isMenuCollapsed">
+      <fa-icon icon="bars"></fa-icon>
+    </button>
+
+    <!-- Navbar Collapse Mobile / Container Desktop -->
+    <div class="navbar-collapse" [class.collapse]="isMenuCollapsed" id="navbarContent">
+      <!-- Menu options -->
+      <app-layout-menu class="d-flex flex-fill justify-content-start" [isMenuCollapsed]="isMenuCollapsed"></app-layout-menu>
+
+      <!-- navbar links/ actions Navbar End List -->
+      <ul class="navbar-nav d-flex justify-content-end flex-fill mt-2 mt-lg-0" *ngIf="(this.settings.cache$ | async) as config">
+        <li class="dropdown-divider d-lg-none"></li>
+        <li class="nav-item" ngbDropdown [display]="isMenuCollapsed ? 'dynamic': undefined">
+          <a class="nav-link" type="button" ngbDropdownToggle id="languageDropdown" role="button" title="{{'header.language.' + languageSelected | translate}}">
+            <fa-icon class="me-1 text-primary" icon="globe"></fa-icon>
+            <span> {{languageSelected | uppercase}} </span>
+          </a>
+          <div ngbDropdownMenu aria-labelledby="languageDropdown" class="dropdown-menu border-md-none"
+          [ngClass]="{'': !isMenuCollapsed , 'shadow-sm' : isMenuCollapsed}">
+            <button *ngFor="let lang of config.locales" (click)="useLanguage(lang)" class="dropdown-item" title="{{'header.language.' + lang | translate}}">{{'header.language.' + lang | translate}}</button>
+          </div>
+        </li>
+
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link" type="button" ngbDropdownToggle id="userDropdown" role="button" title="{{config.user.name}}">
+            <fa-icon class="me-1 text-primary" icon="user"></fa-icon>
+            <span>{{config.user.name}}</span>
+          </a>
+          <div ngbDropdownMenu aria-labelledby="userDropdown" class="dropdown-menu dropdown-menu-right border-md-none"
+          [ngClass]="{'': !isMenuCollapsed , 'shadow-sm' : isMenuCollapsed}">
+            <a ngbDropdownItem routerLink="settings" routerLinkActive="active" title="{{'header.user.config' | translate}}">
+              <fa-icon class="me-1 text-primary" icon="wrench"></fa-icon>
+              {{'header.user.config' | translate}}
+            </a>
+            <div class="dropdown-divider"></div>
+            <form #form action="{{environment.api.base + config.api.logout}}" method="GET" name="logoutForm">
+              <button class="dropdown-item" type="submit" title="{{'header.user.close' | translate}}" value="Logout" (click)="form.submit()">
+                <fa-icon class="me-1 text-primary" icon="sign-out-alt"></fa-icon>
+                {{'header.user.close' | translate}}
+              </button>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+  </nav>
+  <app-breadcrumb></app-breadcrumb>
+  <ngb-progressbar class="fix-top" type="primary"  [value]="100" [striped]="true" [animated]="true" height=".5rem" *ngIf="isNavigationLoaderVisibile$ | async"></ngb-progressbar>
+</header>

@@ -1,0 +1,31 @@
+<div class="container py-5 px-4">
+    <ng-container *ngTemplateOutlet="recursiveList; context:{ list: (menus$ | async), level: 0 }"></ng-container>
+    <ng-template #recursiveList let-items="list" let-level="level">
+        <ng-template #menuEntry ngFor let-menuItem [ngForOf]="items">
+            <ng-template [ngIf]="menuItem.link === currentPath.replace('/', '')">
+                <h2 class="pb-2 border-bottom">{{ menuItem.title | translate }}</h2>
+                <div class="row text-center">
+                    <div class="col-lg-3 col-md-6 mb-4 mt-4" *ngFor="let child of menuItem.children">
+                        <div *ngIf="child.enabled === true"  class="card h-100 btn" [routerLink]="'/' + child.link">
+                            <fa-icon class="me-1 ms-1 mt-4 text-primary" [size]="'4x'" icon="{{ child.icon }}" *ngIf="child.icon !== undefined && null !== child.icon && '' !== child.icon"></fa-icon>
+                            <div class="card-body">
+                                <h4>{{ child.title | translate }}</h4>
+                            </div>
+                        </div>
+
+                        <div *ngIf="child.enabled === false" class="card h-100 btn disabled">
+                            <fa-icon class="me-1 ms-1 mt-4 text-primary" [size]="'4x'" icon="{{ child.icon }}" *ngIf="child.icon !== undefined && null !== child.icon && '' !== child.icon"></fa-icon>
+                            <div class="card-body">
+                                <h4>{{ child.title | translate }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template [ngIf]="menuItem.link !== currentPath.replace('/', '')">
+                <ng-container *ngTemplateOutlet="recursiveList; context:{ list: menuItem.children, level: level + 1 }">
+                </ng-container>
+            </ng-template>
+        </ng-template>   
+    </ng-template>
+</div>

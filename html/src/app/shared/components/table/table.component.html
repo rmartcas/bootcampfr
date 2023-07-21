@@ -1,0 +1,113 @@
+<div class="d-flex justify-content-between flex-wrap">
+    <div class="d-flex justify-content-start my-2 flex-wrap">
+        <ng-template ngFor let-b [ngForOf]="getTopButtons()">
+            <button class="btn border border-primary btn-nc btn-outline-primary me-1 mb-1" 
+                (click)="b.handler(selected, afterClick())"
+                title="{{b.name | translate}}"
+                *appHasAnyRole="b.roles"
+                [disabled]="b.enabled !== undefined ? 
+                (b.enabled === this.enabledOn.multipleRecordsSelected ? 
+                  selected.length <= 1 : 
+                  (b.enabled === this.enabledOn.conditionCheck && undefined !== b.enabledCondition ? 
+                    b.enabledCondition !== undefined && !b.enabledCondition(selected) :
+                    (b.enabled === this.enabledOn.oneRecordSelected ?
+                      selected.length !== 1 : (b.enabled === this.enabledOn.noRecordSelected ? selected.length > 0 : true)
+                    )
+                  )
+                ) : false">
+                <fa-icon *ngIf="b.icon !== null && b.icon !== ''" [icon]="b.icon"></fa-icon>
+                {{b.name | translate}}
+            </button>
+        </ng-template>
+    </div>
+    <div class="d-flex justify-content-end my-2">
+        <button title="{{ 'page.toggle.rows' | translate}}"
+            *ngIf="treeToRelation !== undefined && treeFromRelation !== undefined"
+            class="btn border border-primary btn-nc btn-outline-primary me-1 mb-1"
+            (click)="toggleCollapse()">
+            <fa-icon [icon]="isCollapsedStatus ? 'expand-alt' : 'compress-alt'"></fa-icon>
+            {{ 'page.toggle.rows' | translate}}
+        </button>
+        <select class="custom-select border border-primary w-auto" name="pageSize" (change)="onLimitChange()" [(ngModel)]="page.size" title="{{ 'page.size' | translate }}">
+            <option *ngFor="let size of this.config.getConfig().pagination.pageLimits" [ngValue]="size">{{size !== -1 ? size : 'page.size.all' | translate }}</option>
+        </select>
+
+        <div ngbDropdown class="ms-2" display="dynamic" placement="bottom-right">
+            <button class="btn border border-primary" id="editColumns" ngbDropdownToggle title="{{ 'page.view.columns' | translate }}">
+            <fa-icon [icon]="'th-list'"></fa-icon>
+            </button>
+    
+            <div class="p-2 w-auto" ngbDropdownMenu aria-labelledby="editColumns">
+            <div class="custom-control custom-checkbox" *ngFor="let header of toggleColumns;">
+                <input type="checkbox" class="custom-control-input" [id]="'col' + header.prop.toString()" 
+                    (click)="toggle($event, header)" [checked]="isChecked(header)" *ngIf="header.treeColumn === false">
+                <label class="ps-1 custom-control-label my-2" [attr.for]="'col' + header.prop.toString()">{{header.name | translate }}</label>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ngx-datatable
+        class="bootstrap"
+        [messages]="{
+            emptyMessage: 'table.emptyMessage' | translate,
+            totalMessage: 'table.totalMessage' | translate,
+            selectedMessage: 'table.selectedMessage' | translate
+          }"
+        [headerHeight]="35"
+        [footerHeight]="50"
+        [scrollbarH]="true"
+        rowHeight="auto"
+        [selected]="selected"
+        [selectionType]="selectionType.checkbox"
+        [columnMode]="columnMode.force"
+        [rowIdentity] = "getRowId()"
+        [rows]="page.records || []"
+        [count]="page.totalRecords"
+        [offset]="page.currentPage - 1"
+        [limit]="page.size === -1 ? undefined : page.size"
+        [externalPaging]="externalPaging"
+        (page)="onPageChange($event)"
+        [externalSorting]="externalSorting"
+        [sortType]="sortType.multi"
+        (sort)="onSortChange($event)"
+        (select)="onSelect($event)"
+        (click)="onClick($event)"
+        [treeFromRelation]="treeFromRelation"
+        [treeToRelation]="treeToRelation"
+        (treeAction)="onTreeAction($event)"
+        >
+
+        <!-- selection checkbox-->
+        <ngx-datatable-column *ngIf="headerCheckboxable === true" [headerCheckboxable]="true" [maxWidth]="60"
+                [checkboxable]="true" [sortable]="false" [draggable]="false"></ngx-datatable-column>
+        
+        <!-- table buttons-->
+        <ngx-datatable-column [maxWidth]="getRowButtons().length * 50" [headerCheckboxable]="false" [sortable]="false" [draggable]="false">
+            <ng-template ngx-datatable-cell-template let-row="row">
+                <ng-template ngx-datatable-cell-template ngFor let-b [ngForOf]="getRowButtons()">
+                    <button class="btn mb-1 pe-1 ps-1 ng-star-inserted" 
+                        (click)="b.handler(row, afterClick())"
+                        title="{{b.name | translate}}"
+                        *appHasAnyRole="b.roles"
+                        [disabled]="b.enabled !== undefined ? 
+                        (b.enabled === this.enabledOn.multipleRecordsSelected ? 
+                        selected.length <= 1 : 
+                        (b.enabled === this.enabledOn.conditionCheck && undefined !== b.enabledCondition ? 
+                            b.enabledCondition !== undefined && !b.enabledCondition(row) :
+                            (b.enabled === this.enabledOn.oneRecordSelected ?
+                            selected.length !== 1 : (b.enabled === this.enabledOn.noRecordSelected ? selected.length > 0 : true)
+                            )
+                        )
+                        ) : false">
+                        <fa-icon *ngIf="b.icon !== null && b.icon !== ''" [icon]="b.icon"></fa-icon>
+                    </button>
+                  </ng-template>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <!-- table columns-->
+        <ngx-datatable-column *ngFor="let col of columns" [name]="col.name | translate"
+                [prop]="col.prop" [headerClass]="'text-uppercase fw-bold'" [cellTemplate]="col.cellTemplate" [isTreeColumn]="col.treeColumn"> </ngx-datatable-column>
+</ngx-datatable>

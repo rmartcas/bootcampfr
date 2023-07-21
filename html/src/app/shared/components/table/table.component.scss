@@ -1,0 +1,86 @@
+// Add css styles here
+
+:host ::ng-deep {
+  .datatable-footer {
+    background-color: #ffffff !important;
+    color: #30b566 !important;
+
+    .datatable-footer-inner {
+      display: flex;
+      flex-flow: row nowrap;  // can't wrap because footer height fixed
+      justify-content: space-between;  // probably not needed because .page-count flex grows
+      > .page-count {
+        // remove padding so there's more room in-between
+        padding-right: 0 !important;
+        margin: 0 !important;
+        // don't grow, otherwise pager won't be right-aligned
+        flex: 0 0 auto !important;
+      }
+      > .datatable-pager {
+        margin: 0 !important;
+        // don't grow, otherwise pager won't be right-aligned
+        flex: 0 0 auto !important;
+        > .pager {
+          // prevent numbers from wrapping
+          display: flex !important;
+          flex-flow: row nowrap;
+        }
+      }
+    }
+    
+    .datatable-pager {
+      a {
+        color: #30b566 !important;
+      }
+      
+
+      ul li:not(.disabled).active a {
+        background-color: #30b566 !important;
+        color: #ffffff !important;
+      }
+
+      ul li:not(.disabled):hover a {
+        background-color: #30b566 !important;
+        color: #ffffff !important;
+      }
+    }
+  }
+  .datatable-body-row.active .datatable-row-group {
+    background-color: #c9d5ba !important;
+    color: #000000;
+  }
+
+  .datatable-body-row {
+    background-color: #ffffff !important;
+  }
+
+  .datatable-body-row:hover {
+    background-color: #749f2f25 !important;
+  }
+
+  .datatable-scroll {
+    width: 100% !important;
+  }
+
+  .datatable-body .datatable-body-row .datatable-body-cell {
+    width: 100% !important;
+  }
+
+  .datatable-body-cell{
+    width: 100% !important;
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell {
+    width: 100% !important;
+    vertical-align: bottom;
+    padding: 0.75rem;
+    border-bottom: 3px solid #c9d5ba;
+  }
+
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row {
+    vertical-align: top;
+    border-top: 1px solid #c9d5ba;
+  }
+}
+
+
