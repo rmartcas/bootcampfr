@@ -1,19 +1,19 @@
 {
-  "name": "sample-app",
+  "name": "bootcampfr",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --ssl --ssl-key ssl/localhost.key  --ssl-cert ssl/localhost.crt --proxy-config=proxy.conf.js",
     "build": "ng build --configuration production",
-    "test": "ng test sample-app --watch=false --browsers=ChromeHeadlessNoSandbox",
+    "test": "ng test bootcampfr --watch=false --browsers=ChromeHeadlessNoSandbox",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:app": "ng serve sample-app --proxy-config=proxy.conf.js --ssl --ssl-key ssl/localhost.key  --ssl-cert ssl/localhost.crt",
+    "start:app": "ng serve bootcampfr --proxy-config=proxy.conf.js --ssl --ssl-key ssl/localhost.key  --ssl-cert ssl/localhost.crt",
     "test:app": "ng test",
     "check:app": "npm run lint && npm run test && npm run build",
     "concat:mocks": "node \"./mocks/concat-json.js\"",
     "mock:server": "npm run concat:mocks && json-server --routes mocks/routes.json --watch mocks/data.json",
-    "zip": "bestzip ./sample-app.zip dist/*",
+    "zip": "bestzip ./bootcampfr.zip dist/*",
     "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,

@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   api: {
      // base: 'https://localhost',
-     base: '/poc',
+     base: '/bootcamp',
      locale: '/api/core/locale',
      config: '/api/core/config'
   }

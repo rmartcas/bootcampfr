@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   api: {
-    base: '/poc',
+    base: '/bootcamp',
     locale: '/api/core/locale',
     config: '/api/core/config'
   }

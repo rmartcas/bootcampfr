@@ -1,7 +1,7 @@
 const PROXY_CONFIG = [
   {
     context: [
-      "/poc"
+      "/bootcamp"
     ],
     target: "https://localhost",
     secure: false,

@@ -1,6 +1,6 @@
 {
-  "name": "sample-app",
-  "short_name": "sample-app",
+  "name": "bootcampfr",
+  "short_name": "bootcampfr",
   "theme_color": "#30b566",
   "background_color": "#fafafa",
   "display": "standalone",
