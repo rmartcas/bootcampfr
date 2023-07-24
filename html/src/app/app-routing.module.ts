@@ -32,6 +32,10 @@ export const routes: Routes = [
       { path: 'menus', loadChildren: () => import('./menus/menus.module').then(m => m.MenusModule),
         data: { roles: []},
         canLoad: [RoleGuardService]
+      },
+      { path: 'library', loadChildren: () => import('./library/library.module').then(m => m.LibraryModule),
+        data: { roles: []},
+        canLoad: [RoleGuardService]
       }
     ]
   },

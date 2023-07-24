@@ -1,0 +1,11 @@
+<p class="d-flex justify-content-between">
+  <button type="button" class="btn btn-primary d-flex justify-content-between w-100 text-left"
+    (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapse-data">
+    <span class="text-break">{{name | translate }}</span>
+    <fa-icon [icon]="isCollapsed ? 'chevron-down' : 'chevron-up'"></fa-icon>
+  </button>
+</p>
+
+<div id="collapse-data" class="ms-3 me-3 mb-3" [ngbCollapse]="isCollapsed">
+  <ng-content></ng-content>
+</div>
