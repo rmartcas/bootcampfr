@@ -1,17 +1,13 @@
 
 <app-collapse [name]="desplegableName" [isCollapsed]="colapsado">
     <h1>Hello, world!</h1>
-    <p>Testing HTML</p>
-    <h1>Hello, world!</h1>
-    <p>Testing HTML</p>
-    <h1>Hello, world!</h1>
-    <p>Testing HTML</p>
-    <h1>Hello, world!</h1>
-    <p>Testing HTML</p>
-
-    <button class="navbar-toggler border-0" type="button" 
-      (click)="btnClick()">
-      <fa-icon icon="bars"></fa-icon>
-      BOTON
-    </button>
 </app-collapse>
+
+<app-collapse-library [name]="'hola'" [isCollapsed]="colapsado">
+</app-collapse-library>
+
+<button class="navbar-toggler border-0" type="button" 
+      (click)="btnClick()">
+  <fa-icon icon="bars"></fa-icon>
+    BOTON
+</button>

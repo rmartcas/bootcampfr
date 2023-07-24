@@ -16,9 +16,6 @@ export class LibraryComponent implements OnInit { //obligatoria la impl
     this.desplegableName="Library";
   }
   btnClick():void{
-    
-    
-
     if(this.colapsado){
       this.colapsado=false;
       console.log('false');

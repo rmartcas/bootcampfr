@@ -8,4 +8,22 @@
 
 <div id="collapse-data" class="ms-3 me-3 mb-3" [ngbCollapse]="isCollapsed">
   <ng-content></ng-content>
+  <div class="col-md-6 col-lg-3 form-group">
+    <label class="me-sm-2" for="user">Nombre del libro</label>
+    <div class="input-group mb-2">
+        <input type="text" id="user" class="form-control" (ngModel)="bookname" maxlength="10"/>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-3 form-group">
+    <label class="me-sm-2" for="user">Nombre del autor</label>
+    <div class="input-group mb-2">
+        <input type="text" id="user" class="form-control" (ngModel)="autorname" maxlength="10"/>
+    </div>
+  </div>
+</div>
+<button class="navbar-toggler border-0" type="button" 
+(click)="btnClick()">
+  <fa-icon icon="bars"></fa-icon>
+    emitir datos al padre
+</button>
 </div>
