@@ -1,0 +1,43 @@
+<app-collapse [name]="'Formulario de libros'">
+    <form [formGroup]="form" (submit)="onSearch()">
+        <div class="row">
+            <div class="col-md-6 form-group">
+              <label class="me-sm-2" for="name">Nombre del libro</label>
+              <div class="input-group mb-2">
+                  <input type="text" id="bookname" class="form-control" formControlName="bookname" />
+              </div>
+            </div>
+            <div class="col-md-6 form-group">
+                <label class="me-sm-2" for="name">Nombre del autor</label>
+                <div class="input-group mb-2">
+                    <input type="text" id="autorname" class="form-control" formControlName="autorname" />
+                </div>
+              </div>
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="me-sm-2" for="name">Edad del autor</label>
+            <div class="input-group mb-2">
+                <input type="number" id="edadautor" class="form-control" formControlName="edadautor" min="0" max="100"/>
+            </div>
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="me-sm-2" for="name">Fecha de expedicion</label>
+            <div class="input-group mb-2">
+                <input type="date" id="fecha" class="form-control" formControlName="fecha"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-end">
+                <button type="reset" class="btn btn-nc btn-outline-primary">
+                    <fa-icon class="me-1" icon="times"></fa-icon>
+                    Limpiar filtro
+                </button>   
+                <button type="submit" class="btn btn-nc btn-outline-primary ms-1"  [disabled]="form.invalid">
+                    <fa-icon class="me-1" icon="search"></fa-icon>
+                    Buscar
+                </button>   
+            </div>
+          </div>
+    
+    </form>
+</app-collapse>
