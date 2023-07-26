@@ -4,11 +4,12 @@ import { LibraryRoutingModule } from './library-routing.module';
 import { UserService } from '../users/service/user.service';
 import { MenuService } from '../menus/service/menu.service';
 import { LibraryComponent } from './component/library/library.component';
+import { FormLibraryComponent } from './component/form-library/form-library.component';
 
 
 @NgModule({
   providers: [MenuService, UserService],
-  declarations: [LibraryComponent], //todos los componentes debajo de este modulo
+  declarations: [LibraryComponent, FormLibraryComponent], //todos los componentes debajo de este modulo
   imports: [
       SharedModule,
       LibraryRoutingModule
