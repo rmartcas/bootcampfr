@@ -8,6 +8,8 @@ import { Component, OnInit } from "@angular/core";
 export class LibraryComponent implements OnInit { //obligatoria la impl
   desplegableName: string; 
   colapsado=false;
+  autorNombre="Juan Pérez";
+  libroNombre="Libro de JP";
   constructor() {
     
   }
@@ -26,5 +28,9 @@ export class LibraryComponent implements OnInit { //obligatoria la impl
       this.colapsado=true;
       console.log('true');
     }
+  }
+  showInfoForm(datos:any):void{
+    console.log("padre");
+    console.log(datos);
   }
 }
