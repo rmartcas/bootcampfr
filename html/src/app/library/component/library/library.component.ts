@@ -24,4 +24,12 @@ export class LibraryComponent implements OnInit { //obligatoria la impl
       console.log('true');
     }
   }
+
+
+  guardado(datos:any):void{
+    console.log("Estoy en el padre");
+    console.log(datos);
+    console.log("Nombre del autor " + datos.autorname);
+
+  }
 }
