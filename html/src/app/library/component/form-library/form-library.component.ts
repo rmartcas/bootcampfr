@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
@@ -8,6 +8,10 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 
 export class FormLibraryComponent implements OnInit {
+    
+    @Output() save: EventEmitter<any> = new EventEmitter<any>();
+    @Input() nombre:string;
+
     /** Declaramos la variable formulario */
     formulario: FormGroup;
 
@@ -16,7 +20,7 @@ export class FormLibraryComponent implements OnInit {
     ngOnInit(): void {
 
         this.formulario = this.formBuilder.group({
-            bookname: ['', Validators.maxLength(10)],
+            bookname: [this.nombre, Validators.maxLength(10)],
             autorname: ['', Validators.maxLength(100)],
             ageautor: ['', Validators.min(15)],
             datesale: [this.obtenerFechaActual()]
@@ -32,9 +36,11 @@ export class FormLibraryComponent implements OnInit {
                 edadAutor: this.formulario.get('ageautor').value,
                 fechaVenta: this.formulario.get('datesale').value,
             };
-
-            console.log(datos);
-
+            console.log('estoy en el hijo');
+            console.log('enviando datos...');
+            this.save.emit(datos);
+            console.log('estoy en el hijo');
+            console.log(' datos eviados :)');
         }
     }
 
