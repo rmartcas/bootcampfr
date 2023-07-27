@@ -1,4 +1,3 @@
-
 <!-- <app-collapse [name]="desplegableName" [isCollapsed]="colapsado">
     <h1>Collapse</h1>
     
@@ -10,4 +9,69 @@
     </button>
 </app-collapse> -->
 
-<app-form-library (saveForm)="showInfoForm($event)" [authorNameFromFather]="autorNombre" [bookNameFromFather]="libroNombre"></app-form-library>
+<app-form-library
+  (saveForm)="showInfoForm($event)"
+  [authorNameFromFather]="autorNombre"
+  [bookNameFromFather]="bookNombre"
+></app-form-library>
+
+<app-collapse [name]="'Tabla de datos'">
+  <app-table
+    [page]="getPage()"
+    [columns]="getColumnModel()"
+    [buttons]="getButtons()"
+    [overrideSelected]="false"
+  >
+  </app-table>
+</app-collapse>
+
+<!--
+
+  <button
+  class="navbar-toggler border-0"
+  type="button"
+  class="btn btn-primary"
+  (click)="btnClickNavegar()"
+>
+  Navegar a detalle
+</button>
+<div class="bloque mb-5">
+  <p class="bloque__parte">Estilos</p>
+</div>
+
+<div>
+  <p>{{ book | json }}</p>
+  <p>{{ book.title }}</p>
+  <p [ngStyle]="{ color: book.id === 0 ? 'green' : 'red' }" class="bloque mb-5">
+    {{ book.title }}
+  </p>
+</div>
+
+<div class="test">
+  <ul *ngFor="let b of booksList">
+    <li [ngStyle]="{ color: b.id % 2 === 1 ? 'green' : 'red' }">
+      {{ b.title }}
+    </li>
+  </ul>
+</div>
+
+<span [style.color]="colorsString">aaaaaa</span>
+
+<div
+  [ngClass]="{
+    'text-color-class': true,
+    'background-color-class': false,
+    'text-size-class': true
+  }"
+>
+  <p>{{ book | json }}</p>
+  <p>{{ book.title }}</p>
+</div>
+
+<div class="container-blocks">
+  <div class="one-block">BLOQUE</div>
+  <div class="one-block">BLOQUE</div>
+  <div class="one-block">BLOQUE</div>
+  <div class="one-block">BLOQUE</div>
+  <div class="one-block">BLOQUE</div>
+</div> -->

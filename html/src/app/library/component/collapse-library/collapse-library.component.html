@@ -1,6 +1,11 @@
 <p class="d-flex justify-content-between">
-  <button type="button" class="btn btn-primary d-flex justify-content-between w-100 text-left"
-    (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapse-data">
+  <button
+    type="button"
+    class="btn btn-primary d-flex justify-content-between w-100 text-left"
+    (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapse-data"
+  >
     <span class="text-break"></span>
     <fa-icon [icon]="isCollapsed ? 'chevron-down' : 'chevron-up'"></fa-icon>
   </button>
@@ -8,25 +13,47 @@
 
 <div id="collapse-data" class="ms-3 me-3 mb-3" [ngbCollapse]="isCollapsed">
   <ng-content></ng-content>
-  
- 
-    <div class="col-md-6 col-lg-4 form-group">
-        <label class="me-sm-2" for="user">Nombre del libro</label>
-        <div class="input-group mb-2">
-            <input type="text" value="libro1" id="user" (ngModule)="bookName" readonly="readonly" />
-        </div>
+
+  <div class="col-md-6 col-lg-4 form-group">
+    <label class="me-sm-2" for="user">Nombre del libro</label>
+    <div class="input-group mb-2">
+      <input
+        type="text"
+        value="libro1"
+        id="user"
+        (ngModule)="(bookName)"
+        readonly="readonly"
+      />
     </div>
-    <div class="col-md-6 col-lg-4 form-group">
-      <label class="me-sm-2" for="user">Nombre del autor</label>
-      <div class="input-group mb-2">
-          <input type="text" value="autor1" id="user" (ngModule)="authorName" readonly="readonly" />
-      </div>
   </div>
-  <button class="navbar-toggler border-0" type="button" 
-  (click)="btnClickCollapse()">
-  <fa-icon icon="bars"></fa-icon>
-  BOTON-LIBROS-AUTORES
-</button>
-
-
+  <div class="col-md-6 col-lg-4 form-group">
+    <label class="me-sm-2" for="user">Nombre del autor</label>
+    <div class="input-group mb-2">
+      <input
+        type="text"
+        value="autor1"
+        id="user"
+        (ngModule)="(authorName)"
+        readonly="readonly"
+      />
+    </div>
+  </div>
 </div>
+<div>{{ bookId }}</div>
+<button
+  class="navbar-toggler border-0"
+  type="button"
+  class="btn btn-primary"
+  (click)="btnClickCollapse()"
+>
+  Enviar libro
+</button>
+<app-library-detalle></app-library-detalle>
+<button
+  class="navbar-toggler border-0"
+  type="button"
+  class="btn btn-secondary"
+  (click)="btnClickNavegar()"
+>
+  Navegar
+</button>
