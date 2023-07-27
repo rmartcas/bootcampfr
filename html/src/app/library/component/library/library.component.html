@@ -1,3 +1,24 @@
+<app-form-library 
+  (save)="guardado($event)" 
+  [name]="'Sheila'"
+>
+</app-form-library>
+
+<app-collapse [name]="'Prueba con tablas'">
+  <app-table
+    [page]="getPage()"
+    [columns]="getColumnModel()"
+    [buttons]="getButtons()"
+    [overrideSelected]="false"
+  >
+  </app-table>
+</app-collapse>
+
+<br />
+
+<button class="btn btn-primary" type="button" (click)="btnCambio()">
+  Cambio de página (botón navegar)
+</button>
 
 <!-- <app-collapse [name]="desplegableName" [isCollapsed]="colapsado">
     <h1>Hello, world!</h1>
@@ -12,6 +33,41 @@
     BOTON
 </button> -->
 
-<app-form-library (save)="guardado($event)" [name]="'Sheila'">
+<!-- <div class="prueba mb-5">
+  <p>Esto es una prueba para ver el color</p>
+</div>
 
-</app-form-library>
+<div class="bloque mb-5">
+  Prueba de bloque con estilos
+  <div class="bloque__parte">Prueba de bloque con estilos 2</div>
+</div>
+
+<div class="mb-5" [ngStyle]="{ color: libro.id === 1 ? 'green' : 'red' }">
+  {{ libro.titulo }}
+</div>
+
+<ul *ngFor="let libro of libros">
+  <li [ngStyle]="{ color: libro.id === 1 ? 'green' : 'red' }">
+    {{ libro.titulo }}
+  </li>
+</ul>
+
+<span [style.color]="colorString"> Prueba con color pasado por variable </span>
+
+<div
+  [ngClass]="{
+    colorTexto: true,
+    tamanio: false,
+    fontTexto: true,
+    caja: true
+  }"
+>
+  Prueba
+</div>
+
+<div class="bloque-padre">
+  <div class="bloque-caja"></div>
+  <div class="bloque-caja"></div>
+  <div class="bloque-caja"></div>
+</div> -->
+

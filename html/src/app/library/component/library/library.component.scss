@@ -1,1 +1,67 @@
 // Css styles
+
+$primary-color: #2652e2;
+$background-color: coral;
+$color-texto: rgb(17, 61, 63);
+$tamanio: 20px;
+
+.prueba {
+  color: $primary-color;
+  width: auto;
+  height: 100px;
+  background-color: $background-color;
+}
+
+.bloque {
+  color: $primary-color;
+  &__parte {
+    color: chocolate;
+  }
+}
+
+.green{
+    color:green;
+}
+
+.red{
+    color:red;
+}
+
+.colorTexto{
+    color:$color-texto;
+}
+
+.tamanio{
+    font-size:$tamanio;
+}
+
+.fontTexto{
+    font-weight: bold;
+}
+
+.caja{
+    margin:15px 15px 15px 15px;
+    border:1px solid #2652e2;
+    text-align: center;
+    background-color: rgb(182, 241, 222);
+}
+
+.bloque-caja{
+    width: 100px;
+    height: 100px;
+    background-color:  rgb(241, 182, 223);
+    margin:15px;
+}
+
+.bloque-padre{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: #2652e2;
+    flex: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+

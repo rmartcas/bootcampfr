@@ -1,7 +1,12 @@
 <p class="d-flex justify-content-between">
-  <button type="button" class="btn btn-primary d-flex justify-content-between w-100 text-left"
-    (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapse-data">
-    <span class="text-break">{{name | translate }}</span>
+  <button
+    type="button"
+    class="btn btn-primary d-flex justify-content-between w-100 text-left"
+    (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapse-data"
+  >
+    <span class="text-break">{{ name | translate }}</span>
     <fa-icon [icon]="isCollapsed ? 'chevron-down' : 'chevron-up'"></fa-icon>
   </button>
 </p>
@@ -11,18 +16,43 @@
   <div class="col-md-6 col-lg-3 form-group">
     <label class="me-sm-2" for="user">Nombre del libro</label>
     <div class="input-group mb-2">
-        <input type="text" id="user" class="form-control" (ngModel)="bookname" maxlength="10"/>
+      <input
+        type="text"
+        id="user"
+        class="form-control"
+        (ngModel)="(bookname)"
+        maxlength="10"
+      />
     </div>
   </div>
   <div class="col-md-6 col-lg-3 form-group">
     <label class="me-sm-2" for="user">Nombre del autor</label>
     <div class="input-group mb-2">
-        <input type="text" id="user" class="form-control" (ngModel)="autorname" maxlength="10"/>
+      <input
+        type="text"
+        id="user"
+        class="form-control"
+        (ngModel)="(autorname)"
+        maxlength="10"
+      />
     </div>
   </div>
 </div>
-<button class="navbar-toggler border-0" type="button" 
-(click)="btnClick()">
+<button class="navbar-toggler border-0" type="button" (click)="btnClick()">
   <fa-icon icon="bars"></fa-icon>
-    emitir datos al padre
+  emitir datos al padre
+</button>
+
+<div>{{ numero }}</div>
+
+<app-library-detalle>
+  
+</app-library-detalle>
+
+<button class="btn btn-primary" type="button" (click)="btnClick()">
+  Enviar libro
+</button>
+
+<button class="btn btn-primary" type="button" (click)="btnCambio()">
+  Cambio de página (botón navegar)
 </button>

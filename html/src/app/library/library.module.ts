@@ -7,11 +7,12 @@ import { LibraryComponent } from './component/library/library.component';
 import { CollapseComponent } from '../shared/components/collapse/collapse.component';
 import { CollapseComponentLibrary } from './component/collapse-library/collapse-library.component';
 import { formlibrary } from './component/form-library/form-library.component';
+import { LibraryDetalleComponent } from './component/library-detalle/library-detalle.component';
 
 
 @NgModule({
   providers: [MenuService, UserService],
-  declarations: [LibraryComponent, CollapseComponentLibrary, formlibrary],
+  declarations: [LibraryComponent, CollapseComponentLibrary, formlibrary, LibraryDetalleComponent],
   imports: [
       SharedModule,
       LibraryRoutingModule
