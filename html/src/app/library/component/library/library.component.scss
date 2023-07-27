@@ -1,1 +1,63 @@
 // Css styles
+$primary-color: #e60000;
+$base-color: #37ff3a;
+$secundary-color: #f000ec;
+$tamanioFuente: 20px;
+
+.primeraclase {
+    background-color: #e60000;
+    height: 100px;
+    width: 100px;
+}
+
+.bloque {
+    color: $base-color;
+
+    &__parte {
+        color: chocolate;
+    }
+}
+
+.green {
+    color: #00f010;
+}
+
+.red {
+    color: #ff0606;
+
+}
+
+.colorTexto {
+    color: $secundary-color;
+}
+
+.tamanioTexto {
+    font-size: $tamanioFuente;
+}
+
+.grosorTexto{
+    font-weight: bold;
+}
+
+.caja{
+    margin: 15px 15px 15px 15px;
+    border:15px solid #37ff3a;
+    background-color: aqua;
+}
+
+.contenedor-flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    background-color: grey;
+}
+    
+.caja-flex{
+    margin: 15px 15px 15px 15px;
+    width: 60px;
+    height: 60px;
+    background-color: aqua;
+}

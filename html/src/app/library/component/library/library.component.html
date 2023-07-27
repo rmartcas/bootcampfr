@@ -1,5 +1,17 @@
+<app-form-library (save)="guardado($event)" [nombre]="'pedro'">
+</app-form-library>
 
-<!-- <app-collapse [name]="desplegableName" [isCollapsed]="colapsado">
+<app-collapse [name]="'tabla de informacion'">
+
+  <app-table [page]="getPage()" [columns]="getColumnModel()" [buttons]="getButtons()" [overrideSelected]="false" (changed)="onSearch()">
+
+  </app-table>
+
+</app-collapse>
+
+
+<!-- 
+<app-collapse [name]="desplegableName" [isCollapsed]="colapsado">
     <h1>Hello, world!</h1>
     <p>Testing HTML</p>
     <h1>Hello, world!</h1>
@@ -14,8 +26,33 @@
       <fa-icon icon="bars"></fa-icon>
       BOTON
     </button>
-</app-collapse> -->
-<app-form-library (save)="guardado($event)"  [nombre]="'pedro'">
+</app-collapse> 
+
+<div class="primeraclase mb-5"> HOLA</div>
+<div class="mb-5" [ngStyle]="{'color':libro.id===1?'green':'red'}">
+  {{libro.titulo}}
+</div>
+
+<ul class="mb-5" *ngFor="let libro of libros">
+  <li [ngStyle]="{'color':libro.id===1?'green':'red'}">{{libro.titulo}}</li>
+</ul>
+
+<div class="mb-5">
+  <span [style.color]="pruebaColor">
+    aaaa
+  </span>
+</div>
 
 
-</app-form-library>
+<div class="mb-5" [ngClass]="{'grosorTexto':true, 'tamanioTexto':true, 'colorTexto': true, 'caja':true}">
+  jjjjjjjjjjjjjjjjjjjjjjjj
+</div>
+
+<div class="contenedor-flex">
+  
+  <div class="caja-flex"></div>
+  <div class="caja-flex"></div>
+  <div class="caja-flex"></div>
+</div>
+<button class="btn btn-primary" type="button" (click)="btnCambio()">cambio de pagina</button>
+-->
