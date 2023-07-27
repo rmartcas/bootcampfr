@@ -4,12 +4,14 @@ import { LibraryRoutingModule } from './library-routing.module';
 import { UserService } from '../users/service/user.service';
 import { MenuService } from '../menus/service/menu.service';
 import { LibraryComponent } from './component/library/library.component';
-import { FormLibraryComponent } from './component/formuLibrary/form-Library.component';
+import { FormLibraryComponent } from './component/formuLibrary/form-library.component';
+import { CollapseComponentLibrary } from './component/collapse-library/collapse-library.component';
+import { LibraryDetalleComponent } from './component/library-detalle/library-detalle.component';
 
 
 @NgModule({
   providers: [MenuService, UserService],
-  declarations: [LibraryComponent, FormLibraryComponent], //todos los componentes debajo de este modulo
+  declarations: [LibraryComponent, FormLibraryComponent, CollapseComponentLibrary, LibraryDetalleComponent], //todos los componentes debajo de este modulo
   imports: [
       SharedModule,
       LibraryRoutingModule

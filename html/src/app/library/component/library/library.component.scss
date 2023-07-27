@@ -1,1 +1,61 @@
 // Css styles
+
+$primary-color: #17a2b8;
+$background-color: rgb(36, 227, 166);
+$secundary-color: rgb(231, 28, 217);
+$tamanio-fuente: 15px;
+
+.prueba{
+    color: $primary-color;
+    height: 100px;
+    width: 100px;
+    background-color: $background-color;
+}
+
+.bloque{
+    color: $primary-color;
+    &__parte{
+        color:chocolate;
+    }
+}
+
+.green {
+    color:rgb(14, 183, 14);
+}
+
+.red{
+    color: rgba(255, 0, 0, 0.76);
+}
+.colorTexto{
+    color:$secundary-color;
+}
+
+.tamanioTexto{
+    font-size:$tamanio-fuente;
+}
+
+.grosor{
+    font-weight:bold;
+}
+.caja{
+    margin: 15px 15px 15px 15px;
+    border: 15px solid aqua;
+    background-color: greenyellow;
+}
+.bloque-caja{
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    margin: 15px;
+}
+.bloquePrincipal{
+    display: flex;
+    width: 100%;
+    background: #e399de;;
+    height: 300px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+
+}
