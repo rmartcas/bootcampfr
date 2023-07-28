@@ -1,1 +1,32 @@
 <p>library-edit works!</p>
+<!-- Header -->
+<div class="modal-header border-1 justify-content-between text-primary">
+    <div class="column text-center">
+      <h4 class="modal-title" id="modal-title">
+      </h4>
+    </div>
+      <button type="button" class="close border border-white bg-transparent fs-3" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+
+  <!-- Body -->
+  <div class="modal-body text-center">
+    <div class="mx-auto mt-5 ">
+      <form [formGroup]="form">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label class="me-sm-2" for="title">Título</label>
+                <div class="input-group mb-2">
+                    <input type="text" id="title" required class="form-control" formControlName="title" maxlength="10" [readOnly]="model.id !== undefined" />
+                </div>
+              </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="modal-footer border-0 justify-content-end">
+    <app-modal-button [buttons]="getButtons()" [form]="form"></app-modal-button>
+  </div>

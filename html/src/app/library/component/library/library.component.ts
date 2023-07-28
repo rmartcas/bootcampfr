@@ -12,6 +12,7 @@ import { DataLoad } from "src/app/@core/common/model/dataLoad";
 import { LibroService } from "../../service/libro.service";
 import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 import { AddFileSelectionComponent } from "src/app/shared/components/add-file-selection/add-file-selection.component";
+import { LibraryEditComponent } from "../library-edit/library-edit.component";
 
 @Component({
   selector: 'app-library',
@@ -89,6 +90,11 @@ export class LibraryComponent extends CrudComponentImpl<Libro> implements OnInit
         name: 'titulo',
         prop: 'titulo',
         propertyOrder: 'filters.titulo',
+      },
+      {
+        name: 'file',
+        prop: 'file.nombre',
+        propertyOrder: 'filters.file',
       }
     ];
 
@@ -124,7 +130,7 @@ export class LibraryComponent extends CrudComponentImpl<Libro> implements OnInit
 
   getModalComponent(): Type<CrudEditComponent<Libro>> {
 
-    throw new Error("Method not implemented.");
+    return LibraryEditComponent;
 
   }
 

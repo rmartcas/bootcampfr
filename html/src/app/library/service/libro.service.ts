@@ -15,6 +15,6 @@ export class LibroService extends CrudServiceImpl<Libro>{
   }
 
    getServiceUrl() {
-    return this.config.getConfig().api.libro;
+    return this.config.getConfig().api.biblio;
   }
 }
