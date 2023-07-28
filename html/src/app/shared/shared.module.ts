@@ -16,10 +16,11 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
 import { ModalButtonComponent } from './components/modal-button/modal-button.component';
 import { DatetimepickerComponent } from './components/datetimepicker/datetimepicker.component';
 import { MomentPipe } from './pipes/moment/moment.pipe';
+import { AddFileSelectionComponent } from './components/add-file-selection/add-file-selection.component';
 
 @NgModule({
   declarations: [CollapseComponent, TableComponent, HasAnyRoleDirective,
-     ConfirmComponent, ModalButtonComponent, DatetimepickerComponent, MomentPipe],
+     ConfirmComponent, ModalButtonComponent, DatetimepickerComponent, MomentPipe, AddFileSelectionComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -47,7 +48,8 @@ import { MomentPipe } from './pipes/moment/moment.pipe';
     HasAnyRoleDirective,
     ModalButtonComponent,
     DatetimepickerComponent,
-    MomentPipe
+    MomentPipe,
+    AddFileSelectionComponent
   ]
 })
 export class SharedModule { }

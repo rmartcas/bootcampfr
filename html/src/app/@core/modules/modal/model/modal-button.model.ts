@@ -1,6 +1,7 @@
 export interface ModalButton {
     /** The name of the button. Will be translated. */
     name: string;
+    btnClass?: string;
 
     /** The icon for this button if any */
     icon: string;

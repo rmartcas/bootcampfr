@@ -1,79 +1,74 @@
 import { Component, Injector, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DataLoad } from '../../../@core/common/model/dataLoad';
-import { CrudEditComponentImpl } from '../../../@core/crud/crud-component';
-import { CrudService } from '../../../@core/crud/crud-service';
-import { ModalButton } from '../../../@core/modules/modal/model/modal-button.model';
-import { Menu } from '../../model/menu';
-import { MenuDataLoad } from '../../model/menuDataLoad';
-import { MenuService } from '../../service/menu.service';
+import { CrudEditComponentImpl } from 'src/app/@core/crud/crud-component';
+import { Libro } from '../model/libro';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { DataLoad } from 'src/app/@core/common/model/dataLoad';
+import { CrudService } from 'src/app/@core/crud/crud-service';
+import { ModalButton } from 'src/app/@core/modules/modal/model/modal-button.model';
+import { LibroDataLoad } from 'src/app/mappings/model/libroDataLoad';
+import { LibroService } from '../../service/libro.service';
 
 @Component({
-  selector: 'app-menu-edit',
-  templateUrl: './menu-edit.component.html',
-  styleUrls: ['./menu-edit.component.scss']
+  selector: 'app-library-edit',
+  templateUrl: './library-edit.component.html',
+  styleUrls: ['./library-edit.component.scss']
 })
-export class MenuEditComponent extends CrudEditComponentImpl<Menu> implements OnInit {
+export class LibraryEditComponent extends CrudEditComponentImpl<Libro> implements OnInit {
 
-  /** The data */
-  @Input() model: Menu;
+    /** The model data */
+    @Input() model: Libro;
 
-  /** The form with data */
-  form: FormGroup;
+    /** The form with data */
+    form: FormGroup;
+  
+    /** All available profiles for selection */
+    data: LibroDataLoad;
 
-  /** All available data for selection */
-  data: MenuDataLoad;
+    buttons: ModalButton[] = [
+      {
+        name: 'button.save',
+        icon: null,
+        btnClass: 'btn-primary',
+        handler: this.onSubmit.bind(this),
+        roles: [],
+        disabledWhenInvalid: true,
+  
+      },
+  
+    ];
+    constructor(protected injector: Injector, private readonly service: LibroService, private readonly formBuilder: FormBuilder) {
+      super(injector);
+     }
+  
 
-  constructor(protected injector: Injector, private readonly service: MenuService, private readonly formBuilder: FormBuilder) {
-    super(injector);
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
+  getService(): CrudService<Libro> {
+    return this.service;
+  }
+  getModel(): Libro {
+    return this.model;
+  }
+  getButtons(): ModalButton[] {
+    return this.buttons; 
+  }
+  getForm(): FormGroup<any> {
+    throw new Error('Method not implemented.');
+  }
+  parseForm(form: FormGroup<any>): Libro {
+    const model: Libro = this.getModel();
+      model.titulo = form.controls.titulo.value;
+      return model;
+  }
   getDataLoad(): DataLoad {
     return this.data;
   }
   setDataLoad(dataload: DataLoad): void {
-    this.data = dataload as MenuDataLoad;
+    this.data = dataload as LibroDataLoad;
   }
+ 
 
-  getService(): CrudService<Menu> {
-    return this.service;
-  }
-
-  getButtons(): ModalButton[] {
-    return this.data?.buttons;
-  }
-
-  getModel(): Menu {
-    return this.model;
-  }
-
-  getForm(): FormGroup {
-    return this.form;
-  }
-
-  parseForm(form: FormGroup): Menu {
-    const model: Menu = this.getModel();
-    model.title = form.controls.title.value;
-    model.link = form.controls.link.value;
-    model.icon = form.controls.icon.value;
-    model.enabled = form.controls.enabled.value;
-    model.position = form.controls.position.value;
-    model.parent = form.controls.parent?.value;
-    model.authorities = form.controls.authorities.value?.map(x => ({id : x.id}));
-    return model;
-  }
-
-  ngOnInit(): void {
-    this.init().subscribe();
-    this.form = this.formBuilder.group({
-      title: [ this.model.title, [Validators.required, Validators.maxLength(250)]],
-      link: [ this.model.link, [Validators.required, Validators.maxLength(250)]],
-      icon: [ this.model.icon, [Validators.maxLength(100)]],
-      enabled: [ this.model.enabled],
-      position: [this.model.position, [Validators.maxLength(2)]],
-      parent: [this.model.parent ? { id: this.model.parent.id, name: this.model.parent.title} : this.model.parent],
-      authorities: [this.model.authorities]
-    });
-  }
 
 }

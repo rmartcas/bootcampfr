@@ -10,6 +10,8 @@ import { AppTableColumn } from "src/app/shared/components/table/table-column.mod
 import { FormGroup } from "@angular/forms";
 import { DataLoad } from "src/app/@core/common/model/dataLoad";
 import { LibroService } from "../../service/libro.service";
+import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
+import { AddFileSelectionComponent } from "src/app/shared/components/add-file-selection/add-file-selection.component";
 
 @Component({
   selector: 'app-library',
@@ -19,6 +21,7 @@ import { LibroService } from "../../service/libro.service";
 export class LibraryComponent extends CrudComponentImpl<Libro> implements OnInit { //obligatoria la impl
   desplegableName: string;
   colapsado = false;
+  modalReference: NgbModalRef;
 
   private readonly router: Router;
   private readonly service: LibroService;
@@ -31,14 +34,23 @@ export class LibraryComponent extends CrudComponentImpl<Libro> implements OnInit
       roles: [],
     },
     {
+      icon: 'file',
+      name: 'button.file',
+      rowButton: true,
+      handler: this.openDocumentModal.bind(this),
+      roles: [],
+    },
+    {
       icon: 'pencil-alt',
       name: 'button.edit',
+      rowButton: true,
       handler: this.onEdit.bind(this),
       roles: [],
     },
     {
       icon: 'trash',
       name: 'button.remove',
+      rowButton: true,
       handler: this.onDelete.bind(this),
       roles: [],
     },
@@ -68,16 +80,18 @@ export class LibraryComponent extends CrudComponentImpl<Libro> implements OnInit
     id: 2
   }
   ];
-  constructor(protected readonly injector: Injector) {
+  constructor(protected readonly injector: Injector, public modalService: NgbModal) {
     super(injector);
     this.router = this.injector.get(Router);
     this.service = this.injector.get(LibroService);
     this.colModel = [
-      { name: 'titulo',
+      {
+        name: 'titulo',
         prop: 'titulo',
         propertyOrder: 'filters.titulo',
       }
     ];
+
   }
 
   ngOnInit(): void {
@@ -119,7 +133,7 @@ export class LibraryComponent extends CrudComponentImpl<Libro> implements OnInit
     return {
       size: 10,
       totalRecords: 1,
-      records: [{titulo:'Quijote', id:1}],
+      records: [{ titulo: 'Quijote', id: 1 }],
       currentPage: 1,
       totalPages: null,
       pageOrder: null,
@@ -169,4 +183,21 @@ export class LibraryComponent extends CrudComponentImpl<Libro> implements OnInit
     throw new Error("Method not implemented.");
 
   } //obligatoria la impl
+
+  async openDocumentModal(row: Libro): Promise<void> {
+    this.modalReference = this.modalService.open(AddFileSelectionComponent, {
+      ariaLabelledBy: 'i18n.documentation.fileSelectionModalTitle',
+      backdrop: 'static',
+      centered: true,
+      keyboard: true,
+      size: 'lg',
+      scrollable: true,
+    });
+    try {
+      const file = (await this.modalReference.result) as File;
+      if (file) {
+        //this.service.setFile(row, file);
+      }
+    } catch (rejectedPromise) {}
+  }
 }
